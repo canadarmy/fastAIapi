@@ -6,7 +6,7 @@ import json
 from enum import Enum 
 
 #API function importer
-from support_functions.response import default_response, happysad_eval
+from api_response import default_response, happysad_eval
 
 origins = [
     "http://localhost",
