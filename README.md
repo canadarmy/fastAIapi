@@ -36,3 +36,20 @@ To list containers:
 To stop and remove:
 * docker stop *CONTAINER_NAME*
 * docker rm *CONTAINER_NAME*
+
+### Deployment
+
+It's as easy as:
+
+1. **Build**
+* In local root directory, run:
+    gcloud builds submit --tag gcr.io/*PROJECT_NAME*/fastai-api
+
+2. **Deploy to Cloud Run**
+* In local root directory, run:
+    gcloud run deploy --image=gcr.io/*PROJECT_NAME*/fastai-api --platform managed 
+* Optional - include memory size (size is unit followed by G/M/K):
+    gcloud run deploy --image gcr.io/*PROJECT_NAME*/fastai-api --memory 512M
+
+**Updating Cloud Run**
+* gcloud run services update fastai-api --memory 512M
